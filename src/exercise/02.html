@@ -5,10 +5,10 @@
   <head>
     <!-- 🐶 Ajoute React et ReactDOM dans la page HTML -->
     <!-- 🤖 Ci dessous le code qui permet de charger React depuis un serveur unkg -->
-    <!--
+    
     <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
-      -->
+      
   </head>
   <body>
     <div id="root"></div>
@@ -18,11 +18,37 @@
       // Il va falloir maintenant réimplémenter ce code en React
       // ⛏️ Remplace les 3 lignes suivantes
       // 🤖 Utilise React.createElement
-      const divEl = document.createElement('div')
-      divEl.textContent = 'Bienvenue sur mon site'
-      divEl.className = 'rootContainer'
+      // const divEl = document.createElement('div')
+      // divEl.textContent = 'Bienvenue sur mon site'
+      // divEl.className = 'rootContainer'
 
-      document.getElementById('root').append(divEl)
+
+
+      // const divEl = React.createElement(
+      //   'div',
+      //   { className: 'rootContainer',
+      //   children: 'Bienvenue sur mon site'}
+      // )
+
+      // 🐶 Utilise React.createElement pour créer un élément div
+      const divEl = React.createElement(
+        'div',
+        { className: 'rootContainer', children: [
+          React.createElement('h1', { className: 'title' }, 'Bienvenue'),
+          React.createElement('h2', { className: 'subtitle' }, 'Commencez ici'),
+          React.createElement('p', null, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
+        ] },
+      
+      )
+      // 🐶 Utilise ReactDOM.render pour afficher l'élément dans le DOM
+  
+      // ReactDOM.render(reactH1El, rootEl)
+
+      
+      ReactDOM.render(divEl, rootEl)
+
+
+      // document.getElementById('root').append(divEl)
     </script>
   </body>
 </html>
