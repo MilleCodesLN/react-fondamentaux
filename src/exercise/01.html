@@ -4,6 +4,32 @@
 <!-- 🐶 Créé une structure minimale d'une page HTML :  <html> - <head> - <body> -->
 <!-- 🐶 Créé ensuite une <div> avec l'id "root" dans le body -->
 <!-- 🐶 Crée ensuite une balise <script> pour le code JS -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const divRoot = document.createElement('div');
+            divRoot.id = 'root';
+            document.body.appendChild(divRoot);
+            // 🐶 Créé une div
+            const divEl = document.createElement('div');
+
+            // 🐶 Ajoute ensuite le texte : 'Bienvenue sur mon site'
+            divEl.textContent = 'Bienvenue sur mon site';
+
+            // 🐶 Cette div doit avec un attribut class contenant la valeur 'rootContainer'
+            divEl.className = 'rootContainer';
+
+            // 🐶 Ajoute ensuite cette div à la div racine "root" `append`
+            document.getElementById('root').append(divEl);
+        </script>
+    </body>
+    </html>
 
 <!-- La suite du code est en JavaScript et à mettre dans la balise <script> -->
 <!-- 🐶 Créé une div -->
