@@ -10,22 +10,47 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
-      // 🐶 Fait une fonction 'paragraphe' qui retourne l'element <p> avec le texte
+            // 🐶 Fait une fonction 'paragraphe' qui retourne l'élément <p> avec le texte
+              //Exercice
+              // function paragraphe({children}) {
+              //   return <p className="paragraphe">{children}</p>
+              // }
 
-      // 🐶 Utilise cette fonction à la place des balises <p>
-      // 🤖 {paragraphe({children:'Lorem Ipsum ...'})}
-      const divElement = (
-        <div className="rootContainer">
-          <h1>Bienvenue sur mon site</h1>
-          <p className="paragraphe">Lorem Ipsum is simply dummy text ... </p>
-          <p className="paragraphe">Lorem Ipsum has been the industry ...</p>
-          <p className="paragraphe">
-            when an unknown printer took a galley ...
-          </p>
-        </div>
-      )
+          { /* Bonus */}
+            //🐶 Fait une fonction 'paragraphe' qui retourne l'élément <p> avec le texte
+              function Paragraphe({content, className="paragraphe"}) {
+                return <p className={className}>{content}</p>
+              }
 
-      ReactDOM.render(divElement, document.getElementById('root'))
+              Paragraphe.propTypes = {
+                  content: PropTypes.string.isRequired,
+                  className: PropTypes.string
+            }
+            // 🐶 Utilise cette fonction à la place des balises <p>
+            // 🤖 {paragraphe({children:'Lorem Ipsum ...'})}
+             
+            const divElement = (
+              <div className="rootContainer">
+                <h1>Bienvenue sur mon site</h1>
+               {/* code Initial 
+                 <p className="paragraphe">Lorem Ipsum is simply dummy text ... </p>
+               <p className="paragraphe">Lorem Ipsum has been the industry ...</p>
+                <p className="paragraphe">
+                  when an unknown printer took a galley ...
+                  </p> */}
+
+                 { /* Bonus */}
+               <Paragraphe content='Lorem Ipsum is simply dummy text ...'></Paragraphe>
+                  <Paragraphe className="paragraphe" content='Lorem Ipsum has been the industry ...'></Paragraphe>
+                  <Paragraphe className="paragraphe" content='when an unknown printer took a galley ...'></Paragraphe>
+                { /* Exercice <div>{paragraphe({children:'Lorem Ipsum is simply dummy text ...'})}</div>
+                  <div>{paragraphe({children:'Lorem Ipsum has been the industry ...'})}</div>
+                  <div>{paragraphe({children:'when an unknown printer took a galley ...'})}</div> */}
+              </div>
+            )
+
+            ReactDOM.render(divElement, document.getElementById('root'))
     </script>
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   </body>
 </html>
