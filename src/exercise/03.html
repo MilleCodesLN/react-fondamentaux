@@ -6,26 +6,55 @@
     <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
     <!-- ⛏️ Ajoute Babel en supprimant les commentaires de la ligne ci-dessous -->
-    <!-- <script src="https://unpkg.com/@babel/standalone@7.15.1/babel.js"></script> -->
+    <script src="https://unpkg.com/@babel/standalone@7.15.1/babel.js"></script>
   </head>
   <body>
     <div id="root"></div>
     <!-- 🐶 Pour que Babel prenne en compte le code JavaScipt, il faut rajouter un attribut `type="text/babel"`
     A la balise <script> -->
-    <script>
+      
+    <script type="text/babel">
       const rootEl = document.getElementById('root')
 
       // 🐶 Il va falloir maintenant réimplémenter avec JSX
-      const divEl = document.createElement('div')
-      divEl.textContent = 'Bienvenue sur mon site'
-      divEl.className = 'rootContainer'
-
+      // const divEl = document.createElement('div')
+      // divEl.textContent = 'Bienvenue sur mon site'
+      // divEl.className = 'rootContainer'
+      
       // 🐶 Crée une variable divEl qui contient du JSX (une div avec un texte et une class comme
       // le resultat final html attendu)
       // 🤖 Attention aux attributs en React qui diffèrent légèrement du HTML ex : class -> className
       // 📑 https://fr.reactjs.org/docs/dom-elements.html
 
-      document.getElementById('root').append(divEl)
-    </script>
+      // const divEl = <div className="rootContainer">
+        //   Bienvenue sur mon site
+        // </div>;
+        const welcome = 'Bienvenue'
+        const site = 'sur mon site avec des variables'
+        const children = `${welcome} ${site}`
+        const className = 'rootContainer'
+        //const props = {children, className}
+        
+        
+        
+        
+        const h1EL = <h1 className="title">Bienvenue</h1>
+        const h2EL = <h2 className="subtitle">Commencez ici</h2>
+        const pEL = <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        //const props = { className, children: [h1EL, h2EL, pEL] }
+        // const divEl = <div {...props} />;
+        const contenu = <>{h1EL}{h2EL}{pEL}</>
+        const props = { className, children: contenu }
+        const divEl = <div {...props} />;
+      
+      
+      
+
+
+      // 🐶 Utilise ReactDOM.render pour afficher le contenu de divEl dans l'élément root
+     ReactDOM.render(divEl, document.getElementById('root'));
+
+
+     </script>
   </body>
 </html>
