@@ -4,6 +4,46 @@
 import * as React from 'react'
 
 // 🐶 Créé un composant ButtonActions
+function ButtonActions({ isAdmin }) {
+  return (
+    <div>
+      {isAdmin ? (
+        <ButtonAdmin />
+      ) : (
+       <ButtonGuest />
+      )}
+    </div>
+  )
+}
+
+function ButtonAdmin() {
+  return (
+    <div>
+     
+        <>
+          <button>Lire</button>
+          <button>Créer</button>
+          <button>Modifier</button>
+          <button>Supprimer</button>
+        </>
+    
+    </div>
+  )
+}
+
+function ButtonGuest() {
+  return (
+    <div>
+     
+        <>
+          <button>Lire</button>
+     
+        </>
+    
+    </div>
+  )
+}
+
 // 🐶 Conditionne le rendu en fonction d'un prop 'isAdmin'
 // Si isAdmin est false alors on affichera que le bouton 'Lire'
 // 🤖 ButtonActions({isAdmin})
@@ -15,12 +55,12 @@ const buttonDelete = <button>Supprimer</button>
 
 function App() {
   return (
-    <div>
-      {buttonRead}
-      {buttonCreate}
-      {buttonUpdate}
-      {buttonDelete}
-    </div>
+    <>
+    <ButtonActions isAdmin={false} />
+    <hr style={{border: '2px solid black', width:'100%'}}/>
+    <ButtonActions isAdmin={true} />
+
+    </>
   )
 }
 
