@@ -4,16 +4,22 @@
 import * as React from 'react'
 
 // 🐶 Créé un composant ButtonActions
-function ButtonActions({ isAdmin }) {
-  return (
-    <div>
-      {isAdmin ? (
+function ButtonActions({ isAdmin, hidden=false }) {
+  
+    
+      if(hidden){
+        return null
+      }else {
+       return (<div>
+       {isAdmin ? (
         <ButtonAdmin />
       ) : (
        <ButtonGuest />
       )}
-    </div>
-  )
+      </div>)
+      }
+    
+  
 }
 
 function ButtonAdmin() {
@@ -56,10 +62,17 @@ const buttonDelete = <button>Supprimer</button>
 function App() {
   return (
     <>
+    <h2>Admin is false</h2>
     <ButtonActions isAdmin={false} />
     <hr style={{border: '2px solid black', width:'100%'}}/>
+    <h2>Admin is true</h2>
     <ButtonActions isAdmin={true} />
-
+    <hr style={{border: '2px solid black', width:'100%'}}/>
+    <h2>hidden is true</h2>
+    <ButtonActions isAdmin={true} hidden={true} />
+ <hr style={{border: '2px solid black', width:'100%'}}/>
+    <h2>hidden is false</h2>
+    <ButtonActions isAdmin={true} hidden={false} />
     </>
   )
 }
